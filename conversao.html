@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Conversão</title>
+<meta charset="UTF-8">
+
+<script>
+
+function gerarTabela(){
+
+let n = parseInt(document.getElementById("num").value);
+
+let binChecked = document.getElementById("binaria").checked;
+let octChecked = document.getElementById("octal").checked;
+let hexChecked = document.getElementById("hexadec").checked;
+
+let tabela="<table>";
+
+tabela+="<tr>";
+tabela+="<th>DECIMAL</th>";
+if(binChecked) tabela+="<th>BINÁRIO</th>";
+if(octChecked) tabela+="<th>OCTAL</th>";
+if(hexChecked) tabela+="<th>HEXADECIMAL</th>";
+tabela+="</tr>";
+
+for(let i=0;i<=n;i++){
+
+let cor=(i%2==0)?"rgb(178,175,206)":"white";
+
+tabela+=`<tr style="background-color:${cor}">`;
+
+tabela+=`<td>${i}</td>`;
+
+if(binChecked) tabela+=`<td>${bin(i)}</td>`;
+if(octChecked) tabela+=`<td>${octal(i)}</td>`;
+if(hexChecked) tabela+=`<td>${hexal(i)}</td>`;
+
+tabela+="</tr>";
+}
+
+tabela+="</table>";
+
+document.getElementById("resultado").innerHTML=tabela;
+}
+
+function hexal(x){
+
+if(x==0) return "0";
+
+function swt(y){
+switch(y){
+case 10: return "A";
+case 11: return "B";
+case 12: return "C";
+case 13: return "D";
+case 14: return "E";
+case 15: return "F";
+default: return y;
+}
+}
+
+let resto,stringg="";
+
+while(x>0){
+resto=x%16;
+stringg+=swt(resto);
+x=parseInt(x/16);
+}
+
+return stringg.split("").reverse().join("");
+}
+
+function bin(x){
+
+if(x==0) return "0";
+
+let resto,stringg="";
+
+while(x>0){
+resto=x%2;
+stringg+=resto;
+x=parseInt(x/2);
+}
+
+return stringg.split("").reverse().join("");
+}
+
+function octal(x){
+
+if(x==0) return "0";
+
+let resto,stringg="";
+
+while(x>0){
+resto=x%8;
+stringg+=resto;
+x=parseInt(x/8);
+}
+
+return stringg.split("").reverse().join("");
+}
+
+window.onload = gerarTabela;
+
+</script>
+
+<style>
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#f4f4f4;
+}
+
+.linha{
+margin-top:40px;
+margin-left:20px;
+display:flex;
+align-items:center;
+gap:40px;
+}
+
+.entrada{
+display:flex;
+align-items:center;
+gap:8px;
+white-space:nowrap;
+}
+
+.menu{
+width:200px;
+position:relative;
+}
+
+.opcao{
+padding:12px;
+background:rgb(178,175,206);
+color:#1a0296;
+text-align:center;
+font-weight:bold;
+transition:0.3s;
+}
+
+.opcao:hover{
+background:#7c75bd;
+color:white;
+cursor:pointer;
+}
+
+.subop{
+display:none;
+position:absolute;
+top:100%;
+left:0;
+background:white;
+padding:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+z-index:10;
+}
+
+.menu:hover .subop{
+display:block;
+}
+
+.subop label{
+display:block;
+padding:8px;
+border-radius:8px;
+transition:0.2s;
+}
+
+.subop label:hover{
+background:#e6e4ff;
+cursor:pointer;
+}
+
+.subop input{
+margin-right:8px;
+}
+
+table{
+margin-top:30px;
+margin-left:20px;
+border-collapse:collapse;
+border:1.5px solid #1a0296;
+}
+
+th,td{
+padding:10px;
+width:120px;
+color:#1a0296;
+border-right:1.5px solid #1a0296;
+text-align:center;
+}
+
+button{
+background:#7c75bd;
+color:white;
+padding:5px 10px;
+cursor:pointer;
+border:none;
+}
+
+button:hover{
+background:#8886ac;
+transition:0.3s;
+}
+
+button:active{
+transform:scale(0.93);
+}
+
+#num{
+width:60px;
+height:21.7px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="linha">
+
+<div class="entrada">
+Digite um número:
+<input type="number" id="num" value="10">
+<button onclick="gerarTabela()">OK</button>
+</div>
+
+<div class="menu">
+
+<div class="opcao">
+TABELAS
+</div>
+
+<div class="subop">
+<label><input type="checkbox" onclick="gerarTabela()" id="binaria">Binário</label>
+<label><input type="checkbox" onclick="gerarTabela()" id="octal">Octal</label>
+<label><input type="checkbox" onclick="gerarTabela()" id="hexadec">Hexadecimal</label>
+</div>
+
+</div>
+
+</div>
+
+<div id="resultado"></div>
+
+</body>
+</html>
