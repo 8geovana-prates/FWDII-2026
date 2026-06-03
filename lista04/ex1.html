@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    font-family: monospace;
+    color: rgb(124, 23, 62);
+    font-size: medium;
+}
+
+.center {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.painel-cab {
+    background-color: rgb(124, 23, 62);
+    color: rgb(255, 244, 219);
+    padding: 7px 15px;
+}
+
+.painel-bd {
+    border-bottom: 1.8px solid rgb(124, 23, 62);
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: end;
+}
+
+.campo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.campo input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    border: 1px solid rgb(124, 23, 62);
+    font-family: inherit;
+}
+
+input{
+    color:rgb(49, 1, 20);
+}
+input:focus{
+    outline: none;
+    border: 2px solid rgb(124, 23, 62);
+}
+.btn {
+    color: rgb(124, 23, 62);
+    font-size: 24px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: color 0.3s;
+}
+
+.btn:hover {
+    color: rgb(49, 1, 20);
+}
+
+.btn:active{
+    font-size: 23px;
+    transform: translateY(3px);
+    transition: transform 0.2s;
+}
+
+.res {
+    border: 1px solid rgb(124, 23, 62);
+    margin-top: 40px;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    width: 50%;
+    text-align: left;
+    padding: 10px;
+}
+
+@media (max-width: 600px) {
+    .painel-bd {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn {
+        align-self: center;
+        margin-top: 10px;
+    }
+}
+</style>
+</head>
+<body>
+    <div class="center">
+    <div id="formulario" class="painel">
+    <div class="painel-cab">
+    <h2>Meus Feitiços</h2>
+    </div>
+
+    <div class="painel-bd">
+    <div class="campo">
+    <label><b>Feitiço:</b></label>
+    <input type="text" id="feitico">
+    </div>
+
+    <div class="campo">
+    <label><b>Nível:</b></label>
+    <input type="text" id="nivel">
+    </div>
+    <span class="btn" onclick="inserir()">✚</span>
+    </div>
+    </div>
+
+    <div class="res">
+    <div class="painel-res">
+    <div class="panel-res-bd">
+    <table id="tabela">
+    <tr>
+        <th>Feitiço</th>
+        <th>Nível</th>
+    </tr>
+    </table>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <script>
+        function inserir(){
+            let fet=document.getElementById("feitico").value;
+            let niv=document.getElementById("nivel").value;
+
+            document.getElementById("tabela").innerHTML+=
+            "<tr><td>"+ fet+ "</td><td>"+ niv+ "</td></tR>"
+
+        }
+    </script>
+</body>
+</html>
