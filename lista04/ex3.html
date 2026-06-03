@@ -1,0 +1,99 @@
+<!DOCTYPE html
+<html>
+<head>
+   <title>Lista de Compras</title>
+    <style>
+    
+    body{
+        font-family: monospace;
+    }
+
+    input{
+        a
+        background-color:white;
+        color:rgb(49, 1, 20);
+        border-radius: 3px;
+        padding-top:1px;
+        border-color: rgb(124, 23, 62);
+        margin-top: 2px;
+        outline-color: rgb(124, 23, 62);
+        font-family:monospace;
+        }
+
+    p{color: rgb(124, 23, 62);}
+
+    img{
+        width: 200px;
+        height: 200px;
+        padding-left: 4px;
+    }
+
+
+    .div1{
+        margin-left: 37%;
+        width: 220px;
+        height: 100%;
+        background-color:rgb(255, 255, 255);
+    }
+
+
+    .div2{
+        padding-left: 23px;
+    }
+
+
+    button{
+        margin-top: 3px;
+        border-color:  rgb(124, 23, 62);
+        border-radius: 5px;
+        color:rgb(255, 237, 186);
+    }
+</style>
+</head>
+<body>
+ 
+<div class="div1">
+    <img src="pumpumpumrim.jfif">
+    <div class="div2">
+<forms>
+  <input type="text"> <br>
+  <input type="text"> <br>
+  <input type="text"> <br>
+  <input type="text"> <br>
+  <input type="text"> <br>
+  <input type="text"> <br>
+  <input type="text"> <br>
+  <input type="text"> <br>
+  <input type="text"> <br>
+  <input type="text"> <br>
+</forms>
+<button onclick="botao()" style="background-color:rgb(73, 14, 12);"> ></button>
+<p id="demo"></p>
+</div>
+</div>
+<script>
+let clique=false;
+function botao(){
+    let vet=document.querySelectorAll('input');
+    let text="";
+    if (clique==true){
+        for(let i=0;i<vet.length;i++){
+        vet[i].value="";
+        }
+        document.getElementById("demo").innerHTML="";
+        clique=false;
+        return;
+    }
+    let j=1;
+    for(let i=0;i<vet.length;i++){
+    if(vet[i].value!=""){
+    text+=j+ " "+vet[i].value+"<br>";
+    j++;  
+    }
+    }
+    document.getElementById("demo").innerHTML=text;
+    clique=true;
+    }
+</script>
+</body>
+</html>
