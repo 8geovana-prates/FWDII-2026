@@ -122,7 +122,7 @@ function reajuste(){
         document.getElementById("d4").innerHTML="R$ "+(salario+aum).toFixed(2);
     }
 
-    else if(salario>280 && salario<=700){
+    else if(salario>280 && salario<700){
 
         let aum=salario*0.15;
 
@@ -131,7 +131,7 @@ function reajuste(){
         document.getElementById("d4").innerHTML="R$ "+(salario+aum).toFixed(2);
     }
 
-    else if(salario>700 && salario<=1500){
+    else if(salario>=700 && salario<1500){
 
         let aum=salario*0.10;
 
@@ -140,7 +140,7 @@ function reajuste(){
         document.getElementById("d4").innerHTML="R$ "+(salario+aum).toFixed(2);
     }
 
-    else{
+    else if(salario>=1500){
 
         let aum=salario*0.05;
 
