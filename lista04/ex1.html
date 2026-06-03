@@ -6,6 +6,7 @@ body {
     font-family: monospace;
     color: rgb(124, 23, 62);
     font-size: medium;
+    background-color: rgb(255, 244, 219);
 }
 
 .center {
@@ -137,7 +138,8 @@ td {
         function inserir(){
             let fet=document.getElementById("feitico").value;
             let niv=document.getElementById("nivel").value;
-
+            fet = fet.toLowerCase();
+            niv = niv.toLowerCase();
             document.getElementById("tabela").innerHTML+=
             "<tr><td>"+ fet+ "</td><td>"+ niv+ "</td></tR>"
 
