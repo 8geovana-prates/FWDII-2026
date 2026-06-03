@@ -1,105 +1,154 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Aumento Salarial</title>
-    <style>
-    
-    body{
-        font-family: monospace;
-        color: rgb(124, 23, 62);
-    }
-    
-    input{
-        border: 2px solid rgb(124, 23, 62);
-        font-family: monospace;
-        color: rgb(124, 23, 62);
-    }
-    
-    input:focus{
-        outline: none;
-        border: 3px solid rgb(124, 23, 62);
-    }
-    
-    button{
-        background-color: rgb(124, 23, 62);
-        color: white;
-        border:none;
-        padding: 3px;
-        font-size: 13px; 
-    }
-    .centro{
-        padding: 15px;
-        margin: 30px 10px 20px;
-        border: 2px solid rgb(124, 23, 62);
-        width: 60vh;
-        height: 80vw;
-   }
-   .info div{
-        border: 2px solid rgb(124, 23, 62);
-        padding: 10px;
-        width: 20px;
-        max-width: realative;
-        margin-bottom: 20px;
-   }
+<head>
+    <title>Aumento Salarial</title>
+<style>
 
-    .info{
-        margin-top: 60px;
-        
-    }
-   }
-   img{
-    margin: 0 auto;
-    width: 100%;
-    height: 100%;
-   }
-    </style>
-    
-    </head>
-    <body>
-    <div class="centro">
-    <img src="governo.png">
-    
-    Informe o salário atual: <input type="text" id="salario">
-    <button onclick="reajuste()">Reajustar</button> <br><br>
-    <div class="info">
-    Salário antes do reajuste: <div id="d1"></div>
-    Percentual de aumento aplicado: <div  id="d2"></div>
-    Valor do aumento: <div  id="d3"></div>
-    Novo salário, após o aumento: <div  id="d4"></div>
-    </div>
+body{
+    font-family: monospace;
+    color: rgb(124, 23, 62);
+    display:flex;
+    justify-content:center;
+}
+
+input{
+    border: 2px solid rgb(124, 23, 62);
+    font-family: monospace;
+    color: rgb(124, 23, 62);
+}
+
+input:focus{
+    outline: none;
+    border: 3px solid rgb(124, 23, 62);
+}
+
+button{
+    background-color: rgb(124, 23, 62);
+    color: white;
+    border:none;
+    padding: 4px;
+    font-size: 13px;
+}
+
+button:active{
+    transform:translateY(1px);
+
+}
+.centro{
+    padding:15px;
+    margin-top:30px;
+    border:2px solid rgb(124, 23, 62);
+    width:600px;
+    min-height:350px;
+}
+
+.linha{
+    display:flex;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.linha span{
+    width:230px;
+}
+
+.linha div{
+    border:2px solid rgb(124, 23, 62);
+    padding:10px;
+    width:140px;
+    min-height:20px;
+}
+
+img{
+    display:block;
+    margin:0 auto;
+    width:100%;
+    height:auto;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="centro">
+
+<img src="governo.png">
+
+Informe o salário atual:
+<input type="text" id="salario">
+
+<button onclick="reajuste()">Reajustar</button>
+
+<br><br>
+
+<div class="info">
+<div class="linha">
+    <span>Salário antes do reajuste:</span>
+    <div id="d1"></div>
 </div>
-    <script>
-        function reajuste(){
-            let salario=document.getElementById("salario").value;
-            if(salario<=280){
-            let aum=salario*0.2;
-            document.getElementById("d2").innerHTML=" 20%";
-            document.getElementById("d3").innerHTML=" R$ "+aum;
-            document.getElementById("d4").innerHTML=" R$ "+ (salario+aum);
-            }
 
-            else if(salario>280 && salario<=700){
-            let aum=salario*1.5;
-            document.getElementById("d2").innerHTML=" 15%";
-            document.getElementById("d3").innerHTML=" R$ "+aum;
-            document.getElementById("d4").innerHTML=" R$ "+ (salario+aum);
-            }
+<div class="linha">
+    <span>Percentual de aumento aplicado:</span>
+    <div id="d2"></div>
+</div>
 
-            else if(salario>700 && salario<=1500){
-            let aum=salario*0.1;
-            document.getElementById("d2").innerHTML=" 10%";
-            document.getElementById("d3").innerHTML=" R$ "+aum;
-            document.getElementById("d4").innerHTML=" R$ "+ (salario+aum);
-            }
+<div class="linha">
+    <span>Valor do aumento:</span>
+    <div id="d3"></div>
+</div>
 
-            else{
-            let aum=salario*0.05;
-            document.getElementById("d2").innerHTML=" 15%";
-            document.getElementById("d3").innerHTML=" R$ "+aum;
-            document.getElementById("d4").innerHTML=" R$ "+ (salario+aum);
-            }
-            
-        }
-    </script>
-    </body>
+<div class="linha">
+    <span>Novo salário, após o aumento:</span>
+    <div id="d4"></div>
+</div>
+</div>
+
+<script>
+function reajuste(){
+
+    let salario=Number(document.getElementById("salario").value);
+
+    document.getElementById("d1").innerHTML="R$ "+salario.toFixed(2);
+
+    if(salario<=280){
+
+        let aum=salario*0.20;
+
+        document.getElementById("d2").innerHTML="20%";
+        document.getElementById("d3").innerHTML="R$ "+aum.toFixed(2);
+        document.getElementById("d4").innerHTML="R$ "+(salario+aum).toFixed(2);
+    }
+
+    else if(salario>280 && salario<=700){
+
+        let aum=salario*0.15;
+
+        document.getElementById("d2").innerHTML="15%";
+        document.getElementById("d3").innerHTML="R$ "+aum.toFixed(2);
+        document.getElementById("d4").innerHTML="R$ "+(salario+aum).toFixed(2);
+    }
+
+    else if(salario>700 && salario<=1500){
+
+        let aum=salario*0.10;
+
+        document.getElementById("d2").innerHTML="10%";
+        document.getElementById("d3").innerHTML="R$ "+aum.toFixed(2);
+        document.getElementById("d4").innerHTML="R$ "+(salario+aum).toFixed(2);
+    }
+
+    else{
+
+        let aum=salario*0.05;
+
+        document.getElementById("d2").innerHTML="5%";
+        document.getElementById("d3").innerHTML="R$ "+aum.toFixed(2);
+        document.getElementById("d4").innerHTML="R$ "+(salario+aum).toFixed(2);
+    }
+}
+</script>
+
+</body>
 </html>
