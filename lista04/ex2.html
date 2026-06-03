@@ -6,9 +6,11 @@
         box-sizing: border-box;
     }
 
+
     body{
         margin: 0;
     }
+
 
     input{
         background-color:rgb(253, 243, 185);
@@ -25,14 +27,18 @@
         p{
             color:rgb(73, 14, 12);
         }
-    img{
+       
+        img{
         display: block;
-        margin: 10px auto;
+        padding-top: 10px;
         width: 95%;
         height: 200px;
         object-fit: cover;
         border-radius: 25px;
-        }
+        margin: 0 auto;
+    }
+
+
 
 
     .div1{
@@ -44,9 +50,14 @@
     }
 
 
+
+
     .div2{
         padding: 20px;
+        color:rgb(255, 237, 186);
     }
+
+
 
 
     button{
@@ -56,6 +67,7 @@
         border-radius: 5px;
         color:rgb(255, 237, 186);
     }
+
 
     p{
         color:rgb(255, 237, 186);
@@ -67,6 +79,7 @@
 <div class="div1">
     <img src="pumpumpurim.jpg">
     <div class="div2">
+    Lista de compras:
 <forms>
   <input type="text"> <br>
   <input type="text"> <br>
@@ -85,9 +98,11 @@
 </div>
 <script>
 let clique=false;
+let clique=false;
 function botao(){
     let vet=document.querySelectorAll('input');
     let text="";
+
     if (clique==true){
         for(let i=0;i<vet.length;i++){
         vet[i].value="";
@@ -96,6 +111,7 @@ function botao(){
         clique=false;
         return;
     }
+
     let j=1;
     for(let i=0;i<vet.length;i++){
     if(vet[i].value!=""){
@@ -103,6 +119,7 @@ function botao(){
     j++;  
     }
     }
+    
     document.getElementById("demo").innerHTML=text;
     clique=true;
     }
