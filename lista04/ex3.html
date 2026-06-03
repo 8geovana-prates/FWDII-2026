@@ -1,60 +1,76 @@
-<!DOCTYPE html
+<!DOCTYPE html>
 <html>
 <head>
-   <title>Lista de Compras</title>
     <style>
-    
+    *{
+        box-sizing: border-box;
+    }
+
     body{
-        font-family: monospace;
+        margin: 0;
     }
 
     input{
-        a
-        background-color:white;
-        color:rgb(49, 1, 20);
+        background-color:rgb(253, 243, 185);
+        color: rgb(87, 29, 2);
         border-radius: 3px;
-        padding-top:1px;
-        border-color: rgb(124, 23, 62);
-        margin-top: 2px;
-        outline-color: rgb(124, 23, 62);
-        font-family:monospace;
+        padding:4px;
+        border-color: bisque;
+        margin: 3px 0;
+        outline-color: rgb(73, 14, 12);
+        font-family: 'Times New Roman', Times, serif;
+        width: 100%;
+        min-width: 0;
         }
-
-    p{color: rgb(124, 23, 62);}
-
-    img{
-        width: 200px;
+        p{
+            color:rgb(73, 14, 12);
+        }
+        
+        img{
+        display: block;
+        padding-top: 10px;
+        width: 95%;
         height: 200px;
-        padding-left: 4px;
+        object-fit: cover;
+        border-radius: 25px;
+        margin: 0 auto;
     }
 
 
     .div1{
-        margin-left: 37%;
-        width: 220px;
-        height: 100%;
-        background-color:rgb(255, 255, 255);
+        margin: 0 auto;
+        width: 100%;
+        max-width: 420px;
+        min-height: 100vh;
+        background-color:rgb(46, 1, 11);
     }
 
 
     .div2{
-        padding-left: 23px;
+        padding: 20px;
+        color:rgb(255, 237, 186);
     }
 
 
     button{
-        margin-top: 3px;
-        border-color:  rgb(124, 23, 62);
+        appearance: none;
+        margin-top: 8px;
+        border-color: rgb(255, 238, 145);
         border-radius: 5px;
         color:rgb(255, 237, 186);
+    }
+
+    p{
+        color:rgb(255, 237, 186);
+        margin-top: 15px;
     }
 </style>
 </head>
 <body>
- 
 <div class="div1">
-    <img src="pumpumpumrim.jfif">
+    <img src="pumpumpurim.jpg">
     <div class="div2">
+    Lista de compras:
 <forms>
   <input type="text"> <br>
   <input type="text"> <br>
@@ -75,25 +91,42 @@
 let clique=false;
 function botao(){
     let vet=document.querySelectorAll('input');
+    let lista=[];
     let text="";
-    if (clique==true){
+
+    if(clique==true){
         for(let i=0;i<vet.length;i++){
-        vet[i].value="";
+            vet[i].value="";
         }
         document.getElementById("demo").innerHTML="";
         clique=false;
         return;
     }
-    let j=1;
+
     for(let i=0;i<vet.length;i++){
-    if(vet[i].value!=""){
-    text+=j+ " "+vet[i].value+"<br>";
-    j++;  
+        if(vet[i].value!=""){
+            lista.push(vet[i].value);
+        }
     }
+
+    for(let i=0;i<lista.length-1;i++){
+        for(let j=i+1;j<lista.length;j++){
+            if(lista[i].toLowerCase()>lista[j].toLowerCase()){
+                let aux=lista[i];
+                lista[i]=lista[j];
+                lista[j]=aux;
+            }
+        }
+    }
+    let j=1;
+    for(let i=0;i<lista.length;i++){
+        text+=j+". "+lista[i]+"<br>";
+        j++;
     }
     document.getElementById("demo").innerHTML=text;
     clique=true;
-    }
+}
+
 </script>
 </body>
 </html>
