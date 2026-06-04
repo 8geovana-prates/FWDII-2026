@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+*{
+    box-sizing: border-box;
+}
+
+body{
+    color: rgb(124, 23, 62);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+h2, .di{
+    font-family: monospace;
+}
+
+.d{
+    border: 2px solid rgb(124, 23, 62);
+    color: white;
+    width: 100%;
+    max-width: 700px;
+    padding: 5px;
+}
+
+.di{
+    background-color: rgb(124, 23, 62);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button{
+    box-shadow: 2px 2px rgb(124, 23, 62);
+    width: 25%;
+    margin-bottom: 20px;
+    margin-right: 15px;
+    margin-left:27px;
+    border: 1px solid rgb(124, 23, 62);
+    padding: 3px;
+    color: rgb(73, 36, 50);
+    font-family: monospace;
+}
+
+button:hover{
+    background-color: rgb(179, 176, 178);
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+button:active{
+    outline: none;
+    border: 2px solid rgb(124, 23, 62);
+    transform: translateY(2px);
+}
+
+.quadrado{
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    border: 2px solid rgb(124, 23, 62);
+    margin-bottom: 20px;
+    color:  rgb(148, 219, 247);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="d">
+    <div class="di">
+        <h2>Manipulando Estilo</h2>
+        Clique nos botões que desejar abaixo e veja o quadrado mudar de cor:
+    </div>
+    <button onclick="cor('vermelho')">Vermelho</button>
+    <button  onclick="cor('verde')">Verde</button>
+    <button  onclick="cor()">Azul</button>
+    <div class="quadrado"></div>
+    
+
+
+</div>
+
+<script>
+function cor(s){
+    if(s=="vermelho"){
+        document.querySelector(".quadrado").style.backgroundColor="rgb(124, 23, 62)";
+    }
+
+    else if(s=="verde"){
+        document.querySelector(".quadrado").style.backgroundColor="rgb(5, 53, 50)";
+    }
+
+    else{
+        document.querySelector(".quadrado").style.backgroundColor="rgb(148, 219, 247)";
+    }
+}
+</script>
+
+</body>
+</html>
