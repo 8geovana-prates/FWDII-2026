@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+*{
+    box-sizing: border-box;
+}
+
+body{
+    color: rgb(124, 23, 62);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+h2, .data{
+    font-family: monospace;
+}
+
+.d{
+    border: 2px solid rgb(124, 23, 62);
+    color: white;
+    width: 100%;
+    max-width: 700px;
+    padding: 5px;
+}
+
+.data{
+    background-color: rgb(124, 23, 62);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+input{
+    width: 100%;
+    margin: 3px 0;
+    border: 1px solid rgb(124, 23, 62);
+    padding: 3px;
+    color: rgb(73, 36, 50);
+    font-family: monospace;
+}
+
+input:focus{
+    outline: none;
+    border: 2px solid rgb(124, 23, 62);
+}
+
+p{
+    color: rgb(124, 23, 62);
+}
+
+table{
+    margin-top: 10px;
+    width: 100%;
+    border-collapse: collapse;
+    color: rgb(124, 23, 62);
+    font-family: monospace;
+}
+
+td{
+    border: 1px solid rgb(124, 23, 62);
+    padding: 6px;
+}
+
+td:first-child{
+    width: 150px;
+    font-weight: bolder;
+}
+</style>
+</head>
+
+<body>
+
+<div class="d">
+    <div class="data">
+        <h2>Caracteres</h2>
+        Digite uma cadeia de caracteres abaixo, podendo ser letras, números e outros especiais.
+    </div>
+
+    <input type="text" id="cadeia" placeholder="Digite uma sequência caractere aqui">
+
+    <table>
+        <tr>
+            <td>Letras</td>
+            <td id="letras"></td>
+        </tr>
+
+        <tr>
+            <td>Números</td>
+            <td id="numeros"></td>
+        </tr>
+
+        <tr>
+            <td>Caracteres especiais</td>
+            <td id="especiais"></td>
+        </tr>
+    </table>
+
+</div>
+
+<script>
+function mostrar(){
+    let linha=document.getElementById("cadeia").value;
+    let letras="", num="", esp="";
+
+    for(let i=0;i<linha.length;i++){
+        let ascii=linha[i].charCodeAt(0);
+        
+        if(ascii>=48 && ascii<=57){
+            num+=linha[i]+" ";
+        }
+        
+        else if((ascii>=65 && ascii<=90) || (ascii>=97 && ascii<=122)){
+        letras+=linha[i]+" ";
+        }
+        
+        else{
+            esp+=linha[i]+" ";
+        }
+    }
+
+    document.getElementById("letras").innerHTML=letras;
+    document.getElementById("numeros").innerHTML=num;
+    document.getElementById("especiais").innerHTML=esp;
+}
+
+let campo=document.getElementById("cadeia");
+campo.addEventListener("keydown", enter);
+
+function enter(event){
+    if(event.key=="Enter"){
+        mostrar();
+    }
+}
+</script>
+
+</body>
+</html>
