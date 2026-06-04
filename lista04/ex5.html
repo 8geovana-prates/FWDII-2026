@@ -80,17 +80,28 @@ function mostrar(){
     let vet=data.split("/");
 
     if(vet.length==3){
+
+        if(!/^\d{2}\/\d{2}\/\d{4}$/.test(data)){
+        document.querySelector("p").innerHTML="Data por extenso: data inválida!";
+        return;
+        }
+
         let dia=vet[0];
         let mes=Number(vet[1]);
         let ano=vet[2];
 
-        document.querySelector("p").innerHTML+=
-        "Data por extenso: "+dia+" de "+meses[mes-1]+" de "+ano;
+        let bissexto=(ano%4==0 && ano%100!=0) || (ano%400==0);
+
+        if( dia<1 || dia>31 || mes<1 || mes>12 || mes=="" || dia=="" || ano=="" || 
+        (mes==2 && ((bissexto && dia>29) || (!bissexto && dia>28))) || 
+        ((mes==4 || mes==6 || mes==9 || mes==11) && dia>30)){
+        document.querySelector("p").innerHTML="Data por extenso: data inválida!";
+        }
+
+        else{document.querySelector("p").innerHTML="Data por extenso: "+dia+" de "+meses[mes-1]+" de "+ano+".";}
     }
 
-    else{
-        document.querySelector("p").innerHTML+=" data inválida!";
-    }
+    else{document.querySelector("p").innerHTML="Data por extenso: data inválida!";}
 }
 
 let campo=document.querySelector("input");
