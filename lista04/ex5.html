@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+body{
+    color: rgb(124, 23, 62);
+    font-size: monospace;
+    margin: 0;
+    display: flex;
+}
+
+.d{
+    border: 2px solid rgb(124, 23, 62);
+    color: white;
+    margin: 0 auto;
+    margin-top: 30px;
+    min-width: 400px;
+    padding: 5px;
+}
+
+.data{
+    background-color: rgb(124, 23, 62);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+input{
+    width: 130px;
+    border: 1px solid rgb(124, 23, 62);
+    padding: 3px;
+    color: rgb(73, 36, 50);
+    font-family: monospace;
+}
+
+input:focus{
+    outline: none;
+    border: 2px solid rgb(124, 23, 62);
+}
+
+p{
+    color: rgb(124, 23, 62);
+}
+</style>
+</head>
+
+<body>
+
+<div class="d">
+    <div class="data">
+        <h2>Data</h2>
+        Digite uma data, seguindo o modelo abaixo, e, logo após, pressione ENTER.
+    </div>
+
+    <input type="text" placeholder="dd/mm/aaaa">
+
+    <i>
+        <p>Data por extenso:</p>
+    </i>
+</div>
+
+<script>
+function mostrar(){
+    let meses=[
+        "janeiro",
+        "fevereiro",
+        "março",
+        "abril",
+        "maio",
+        "junho",
+        "julho",
+        "agosto",
+        "setembro",
+        "outubro",
+        "novembro",
+        "dezembro"
+    ];
+
+    let data=document.querySelector("input").value;
+    let vet=data.split("/");
+
+    if(vet.length==3){
+        let dia=vet[0];
+        let mes=Number(vet[1]);
+        let ano=vet[2];
+
+        document.querySelector("p").innerHTML+=
+        "Data por extenso: "+dia+" de "+meses[mes-1]+" de "+ano;
+    }
+
+    else{
+        document.querySelector("p").innerHTML+=" data inválida!";
+    }
+}
+
+let campo=document.querySelector("input");
+
+campo.addEventListener("keydown", enter);
+
+function enter(event){
+    if(event.key=="Enter"){
+        event.preventDefault();
+        mostrar();
+    }
+}
+</script>
+
+</body>
+</html>
