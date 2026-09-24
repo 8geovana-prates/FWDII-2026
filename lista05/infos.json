@@ -1,0 +1,22 @@
+[
+  {
+    "codigo": "001",
+    "nome": "Ricardo Soares Boaventura",
+    "telefone": "34 99999-0000",
+    "email": "ricboaventura@gmail.com",
+  },
+
+   {
+    "codigo": "002",
+    "nome": "Crícia Felício Paixão",
+    "telefone": "34 99999-1111",
+    "email": "criciapaixao@gmail.com",
+  },
+
+   {
+    "codigo": "003",
+    "nome": "Carlos Eduardo",
+    "telefone": "34 99999-2222",
+    "email": "cadu@gmail.com",
+  }
+]
