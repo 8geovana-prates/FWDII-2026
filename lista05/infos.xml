@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cadastros>
+  <cadastro>
+    <codigo>001</codigo>
+    <nome>Ricardo Soares</nome>
+    <telefone>99999-0000</telefone>
+    <email>ricboaventura@gmail.com</email>
+  </cadastro>
+</cadastros>
