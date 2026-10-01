@@ -2,8 +2,20 @@
 <cadastros>
   <cadastro>
     <codigo>001</codigo>
-    <nome>Ricardo Soares</nome>
-    <telefone>99999-0000</telefone>
+    <nome>Ricardo Soares Boaventura</nome>
+    <telefone>34 99999-0000</telefone>
     <email>ricboaventura@gmail.com</email>
+  </cadastro>
+  <cadastro>
+    <codigo>002</codigo>
+    <nome>Crícia Felício Paixão</nome>
+    <telefone>34 99999-1111</telefone>
+    <email>criciapaixao@gmail.com</email>
+  </cadastro>
+  <cadastro>
+    <codigo>003</codigo>
+    <nome>Carlos Eduardo</nome>
+    <telefone>34 99999-2222</telefone>
+    <email>cadu@gmail.com</email>
   </cadastro>
 </cadastros>
