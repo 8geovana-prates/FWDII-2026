@@ -1,1 +1,45 @@
+body{
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
 
+form{
+  border: 1px solid #999;
+  padding: 15px;
+  width: 420px;
+  margin-bottom: 15px;
+}
+
+label{
+  display: inline-block;
+  width: 70px;
+  margin: 4px 0;
+}
+
+input[type="text"]{
+  width: 200px;
+  margin: 4px 0;
+}
+
+button{
+  margin-top: 8px;
+}
+
+table{
+  border-collapse: collapse;
+  width: 600px;
+}
+
+thead td{
+  background-color: #f3f0c8;
+  font-weight: bold;
+}
+
+td{
+  padding: 5px 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.editar{
+  cursor: pointer;
+}
