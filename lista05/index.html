@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=pt-br">
+<html lang="pt-br">
   <head>
     <meta charset="utf-8">
     <title>Tabela de Cadastros | Index</title>
@@ -8,18 +8,30 @@
    
   </head>
   <body>
-    <forms>
+    <form>
+      <label for="cod">Código:</label>
       <input type="text" id="cod">
+      <label for="nome">Nome:</label>
       <input type="text" id="nome">
+      <label for="tel">Telefone:</label>
       <input type="text" id="tel">
+      <label for="email">Email:</label>
       <input type="text" id="email">
-    </forms>
-    <button>Salvar</button>
+      <button type="button" id="btnSalvar">Salvar</button>
+      <button type="button" id="btnOrderCod">Ordenar por código</button>
+      <button type="button" id="btnOrderName">Ordenar por nome</button>
+    </form>
     <table id="demo">
+    <thead>
+    <tr>
     <td id="01">Código</td>
     <td id="02">Nome</td>
     <td id="03">Telefone</td>
     <td id="04">Email</td>
+    <td id="05">Ações</td>
+    </tr>
+    </thead>
+    <tbody id="corpo-tabela"></tbody>
     </table>
      <script src="script.js"></script>
   </body>
